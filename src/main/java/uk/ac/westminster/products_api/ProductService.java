@@ -17,6 +17,7 @@ public class ProductService {
 
     public Product addProduct(Product product) {
         product.setId(nextId++);
+        //nextId++;
         products.add(product);
         return product;
     }
@@ -26,6 +27,15 @@ public class ProductService {
                 .filter(p -> p.getId().equals(id))
                 .findFirst();
     }
+
+//    public String deleteProduct(Long id) {
+//        boolean isDeleted = products.removeIf(p -> p.getId().equals(id));
+//        if (isDeleted) {
+//            return "Delete endpoint executed: ID: " + id + "product has been deleted successfully";
+//        } else {
+//            return "Unable to delete, ID: " + id + ": product is not found!";
+//        }
+//    }
 
     public void deleteProduct(Long id) {
         products.removeIf(p -> p.getId().equals(id));
